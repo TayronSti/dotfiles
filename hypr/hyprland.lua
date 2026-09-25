@@ -373,7 +373,7 @@ local suppressMaximizeRule = hl.window_rule({
 
     suppress_event = "maximize",
 })
-suppressMaximizeRule:set_enabled(true)
+-- suppressMaximizeRule:set_enabled()
 
 hl.window_rule({
     -- Fix some dragging issues with XWayland
