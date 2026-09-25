@@ -115,7 +115,8 @@
     "group/quicklinks": {
 	    "orientation": "horizontal",
 	    "modules": [
-		    "custom/vivaldi"
+		    "custom/vivaldi",
+		    "custom/discord"
 	    ]
     },
 
@@ -158,6 +159,13 @@
     "custom/vivaldi":{
 	    "format": "",
 	    "on-click": "vivaldi",
+	    "tooltip": false
+    },
+
+    // Discord
+    "custom/discord":{
+	    "format": "",
+	    "on-click": "/usr/bin/vesktop",
 	    "tooltip": false
     },
 
