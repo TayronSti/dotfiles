@@ -1,0 +1,77 @@
+/* =========================
+   Farben
+   ========================= */
+
+@define-color bg rgba(30,30,46,0.85);
+@define-color surface #313244;
+@define-color text #cdd6f4;
+
+@define-color accent #3b3b3b;
+@define-color green  #a6e3a1;
+@define-color yellow #f9e2af;
+@define-color red    #f38ba8;
+@define-color black  #000000;
+@define-color white  #ffffff;
+
+/* =========================
+   Allgemein
+   ========================= */
+
+* {
+    font-family: "Font Awesome 6 Free", "Symbols Nerd Font", "JetBrainsMono Nerd Font", "Noto Color Emoji", sans-serif;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: @text;
+    margin: 0 16px;
+}
+
+/* =========================
+   Workspaces
+   ========================= */
+
+#workspaces {
+    padding: 0 6px;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    margin: 4px 3px;
+    border-radius: 8px;
+    color: @white;
+    background: @bg;
+    transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+    background: @red;
+}
+
+#workspaces button:hover {
+    background: rgba(0,0,0,0.25); 
+}
+
+#custom-appmenuicon,
+#taskbar,
+#group-quicklinks,
+#custom-vivaldi,
+#window,
+#pulseaudio,
+#group-hardware,
+#custom-system,
+#disk,
+#cpu,
+#memory,
+#network,
+#bluetooth,
+#custom-exit,
+#clock {
+	background: @bg;
+	margin: 6px 4px;
+	padding: 0 12px;
+}

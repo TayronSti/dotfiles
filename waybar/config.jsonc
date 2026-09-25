@@ -1,0 +1,41 @@
+{
+
+  // General Settings
+
+  // Position
+  "layer": "top",
+  "margin-top": 14,
+  "margin-bottom": 0,
+
+  "height": 16,
+  "margin-left": 0,
+  "margin-right": 0,
+  "spacing": 0,
+
+  // Load Modules
+  "include": ["~/.config/waybar/modules.jsonc"],
+
+  // Modules Left
+  "modules-left": [
+  	  "custom/appmenuicon",
+	  "wlr/taskbar",
+	  "group/quicklinks",
+	  "hyprland/window"	
+  ],
+
+  // Modules Center
+  "modules-center": [
+	  "hyprland/workspaces"
+  ],
+
+  // Modules Right
+  "modules-right": [
+	  "pulseaudio",
+	  "group/hardware",
+	  "network",
+	  "bluetooth",
+	  "custom/exit",
+	  "clock"
+  ]
+
+}
