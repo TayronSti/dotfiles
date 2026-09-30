@@ -351,6 +351,7 @@ hl.bind("SUPER + SHIFT + N", hl.dsp.exec_cmd("swaync-client -C"))
 
 -- fullscreen
 hl.bind("SUPER + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle"}))
+hl.bind("SUPER + SHIFT + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle"}))
 
 -- hyprswitch
 hl.bind("ALT + TAB", hl.dsp.exec_cmd("hyprswitch gui --mod-key ALT --key TAB"))
