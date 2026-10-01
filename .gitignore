@@ -1,0 +1,35 @@
+# Secrets / credentials
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.secret
+secrets/
+credentials/
+
+# SSH
+.ssh/
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+
+# Local caches / generated files
+.cache/
+*.log
+
+# Editor / IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
