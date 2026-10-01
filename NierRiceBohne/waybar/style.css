@@ -112,41 +112,50 @@ window#waybar.empty #window {
 /* Clock */
 /*--------------------------------------------------*/
 #clock {
-	margin: 5px 5px 5px 2px;
-	padding: 0px 5px;
+	margin: 5px 10px 5px 0px;
+	padding: 0px;
 	background: @light;
 	color: @dark;
-	font-size: 14px;
+	font-size: 15px;
 	font-weight: normal;
-	border: 2px solid @dark;
 }
 /*--------------------------------------------------*/
 /* Custom Exit */
 /*--------------------------------------------------*/
 #custom-exit {
-	margin: 5px 2px;
-	padding: 0px 9px 0px 5px;
+	margin: 5px 0px;
+	padding: 0px;
 	background: @light;
 	color: @dark;
-	font-size: 14px;
+	font-size: 15px;
 	font-weight: normal;
-	border: 2px solid @dark;
+}
+
+#custom-exit:hover {
+	background: @dark;
+	color: @light;
+	transition: all 0.3s ease-in-out;
 }
 /*--------------------------------------------------*/
 /* Network */
 /*--------------------------------------------------*/
 #network {
-	margin: 5px 2px;
-	padding: 0px 5px;
+	margin: 5px 0px;
+	padding: 0px;
 	background: @light;
 	color: @dark;
-	font-size: 14px;
+	font-size: 15px;
 	font-weight: normal;
-	border: 2px solid @dark;
+}
+
+#network:hover {
+	background: @dark;
+	color: @light;
+	transition: all 0.3s ease-in-out;
 }
 
 #network.disconnected {
-	background-color: @red;
+	color: @red;
 }
 /*--------------------------------------------------*/
 /* Hardware Group */
@@ -154,27 +163,31 @@ window#waybar.empty #window {
 #disk,
 #memory,
 #cpu {
-	margin: 5px 2px;
-	padding: 0px 5px;
+	margin: 5px 0px;
+	padding: 0px;
 	background: @light;
 	color: @dark;
-	font-size: 14px;
+	font-size: 15px;
 	font-weight: normal;
-	border: 2px solid @dark;
 }
 /*--------------------------------------------------*/
 /* Pulseaudio */
 /*--------------------------------------------------*/
 #pulseaudio {
-	margin: 5px 2px;
-	padding: 0px 5px;
+	margin: 5px 0px;
+	padding: 0px;
 	background: @light;
 	color: @dark;
-	font-size: 14px;
+	font-size: 15px;
 	font-weight: normal;
-	border: 2px solid @dark;
+}
+
+#pulseaudio:hover {
+	background: @dark;
+	color: @light;
+	transition: all 0.3s ease-in-out;
 }
 
 #pulseaudio.muted {
-	background-color: @red;
+	color: @red;
 }

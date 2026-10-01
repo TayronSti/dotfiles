@@ -42,32 +42,32 @@
 
     // Power Menu
     "custom/exit": {
-        "format": "",
+        "format": "[ PWR ]",
         "on-click": "wlogout",
         "tooltip-format": "Power Menu"
     },
 
     // Clock
     "clock": {
-    	"format": "{:%H:%M %a}",
+    	"format": "[ {:%H:%M // %a} ]",
     	"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-    	"format-alt": "{:%d.%m.%Y}"
+    	"format-alt": "[ {:%d.%m.%Y} ]"
     },
 
     // CPU
     "cpu": {
-        "format": "C {usage}%"
+        "format": "// CPU {usage}% //"
     },
 
     // Memory
     "memory": {
-        "format": "M {}%"
+        "format": " MEM {}% ]"
     },
 
     // Harddisc space used
     "disk": {
         "interval": 30,
-        "format": "D {percentage_used}%",
+        "format": "[ DSK {percentage_used}% ",
         "path": "/"
     },
 
@@ -83,10 +83,10 @@
 
     // Network
     "network": {
-        "format": "{ifname}",
-        "format-wifi": "  {signalStrength}%",
-        "format-ethernet": " {ifname}",
-        "format-disconnected": "Disconnected",
+        "format": "[ {ifname} ]",
+        "format-wifi": "[   {signalStrength}% ]",
+        "format-ethernet": "[ CONNECTED ]",
+        "format-disconnected": "[ DISCONNECTED ]",
         "tooltip-format": " {ifname} via {gwaddri}",
         "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
         "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
@@ -98,21 +98,12 @@
     // Pulseaudio
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon} {volume}%",
-        "format-bluetooth": "{volume}%  {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": " ",
-            "hands-free": " ",
-            "headset": " ",
-            "phone": " ",
-            "portable": " ",
-            "car": " ",
-            "default": [" ", " ", " "]
-        },
+        "format": "[ VOL {volume}% ]",
+        "format-bluetooth": "[ {volume}%  {icon} {format_source} ]",
+        "format-bluetooth-muted": "[  {icon} {format_source} ]",
+        "format-muted": "{format_source}",
+        "format-source": "[ {volume}%  ]",
+        "format-source-muted": "[   ]",
         "on-click": "pavucontrol"
     }
 }
