@@ -80,30 +80,12 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("swaync && swaync-client --change-noti-monitor 'DP-3'")
 	hl.exec_cmd("hyprswitch init --show-title")
 	hl.exec_cmd("hyprpaper")
-
-	-- Nier Dashboard
+	
+	-- Desktop
+	hl.exec_cmd("kitty --class nier-btop -e btop")
+	hl.exec_cmd("kitty --class nier-cava -e cava")
 	hl.exec_cmd("kitty --class nier-terminal")
-
-	hl.exec_cmd([[
-    		sh -c '
-        		while ! hyprctl clients | grep -q "class: nier-terminal"; do
-            			sleep 0.1
-       			done
-
-        		hyprctl dispatch layoutmsg preselect r
-        		kitty --class nier-btop btop &
-
-        		while ! hyprctl clients | grep -q "class: nier-btop"; do
-            			sleep 0.1
-        		done
-
-        		hyprctl dispatch focuswindow class:^nier-terminal$
-        		hyprctl dispatch layoutmsg preselect d
-        		kitty --class nier-cava cava
-    		'
-	]])	
 end)
-
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -431,36 +413,21 @@ hl.window_rule({
     float = true,
 })
 
--- NieR Dashboard
+-- custom window rules
 hl.window_rule({
     name = "nier-terminal",
-    match = {
-        class = "^nier-terminal$",
-    },
-
-    monitor = "DP-3",
-    float = false,
-    move = "10 35",
-})
-
-hl.window_rule({
-    name = "nier-cava",
-    match = {
-        class = "^nier-cava$",
-    },
-
-    monitor = "DP-3",
-    float = false,
-    move = "10 710",
+    match = { class = "^nier-terminal$" },
+    workspace = "6",
 })
 
 hl.window_rule({
     name = "nier-btop",
-    match = {
-        class = "^nier-btop$",
-    },
+    match = { class = "^nier-btop$" },
+    workspace = "6",
+})
 
-    monitor = "DP-3",
-    float = false,
-    move = "1285 35",
+hl.window_rule({
+    name = "nier-cava",
+    match = { class = "^nier-cava$" },
+    workspace = "6",
 })
