@@ -76,10 +76,9 @@
         },
         {
             "type": "shell",
-            "key": "└ └󰞷 ",
+            "key": "│ ├󰞷 ",
             "keyColor": "\u001b[38;2;117;108;99m"
         },
-        "break",
         {
             "type": "de",
             "key": "󰧨  DE",
