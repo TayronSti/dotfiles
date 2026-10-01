@@ -73,4 +73,5 @@ tooltip label {
 
 window#waybar.empty #window {
 	background-color:transparent;
+	border: 0px solid @dark;
 }
