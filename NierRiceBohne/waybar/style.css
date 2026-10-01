@@ -1,0 +1,76 @@
+/* Colors */
+@define-color light #756C63;
+@define-color dark #191617;
+@define-color white #ffffff;
+@define-color black #000000;
+
+/* General */
+* {
+	font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+	border: none;
+	border-radius: 0px;
+}
+
+window#waybar {
+	background-color: @light;
+	transition-property: background-color;
+	transition-duration: .5s;
+	opacity: 0.8;
+}
+
+/* Workspaces */
+#workspaces {
+	font-weight: bold;
+	font-size: 14px;
+	background: @light;
+	border-right: 2px solid @dark;
+	border-left: 2px solid @dark;
+	padding: 0px 4px;
+	margin: 2px 0px;
+}
+
+#workspaces button {
+	color: @dark;
+	background: @light;
+	transition: all 0.3s ease-in-out;
+}
+
+#workspaces button.active {
+	color: @light;
+	background: @dark;
+	transition: all 0.3s ease-in-out;
+}
+
+#workspaces button:hover {
+	color: @white;
+	background: @dark;
+	text-shadow: none;
+}
+
+/* Tooltips */
+tooltip {
+	background-color: @dark;
+	opacity: 1;
+	padding: 20px;
+	margin: 0px;
+	border: 1px solid @light;
+}
+
+tooltip label {
+	color: @light;
+}
+
+/* Active window */
+#window {
+	margin: 5px 5px;
+	padding: 0px 5px;
+	background: @light;
+	color: @dark;
+	font-size: 14px;
+	font-weight: normal;
+	border: 2px solid @dark;
+}
+
+window#waybar.empty #window {
+	background-color:transparent;
+}
