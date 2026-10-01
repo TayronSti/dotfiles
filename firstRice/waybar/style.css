@@ -1,7 +1,7 @@
 /* -----------------------------------------------------
  * Import Pywal colors 
  * ----------------------------------------------------- */
-@import url("/home/tayron/.cache/wal/colors-waybar.css");
+@import url("~/.cache/wal/colors-waybar.css");
 
 @define-color textcolor1 #FFFFFF;
 
