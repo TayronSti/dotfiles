@@ -1,5 +1,6 @@
 /* Colors */
 @define-color light #756C63;
+@define-color light-transparent rgba (117, 108, 99, 0.8);
 @define-color dark #191617;
 @define-color white #ffffff;
 @define-color black #000000;
@@ -14,8 +15,7 @@
 window#waybar {
 	background-color: @light;
 	transition-property: background-color;
-	transition-duration: .5s;
-	opacity: 0.8;
+	transition-duration: 0.5s;
 }
 
 /* Workspaces */
@@ -60,7 +60,7 @@ tooltip label {
 	color: @light;
 }
 
-/* Active window */
+/* Active window (text) */
 #window {
 	margin: 5px 5px;
 	padding: 0px 5px;
