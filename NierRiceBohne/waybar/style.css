@@ -1,11 +1,14 @@
 /* Colors */
+/*--------------------------------------------------*/
 @define-color light #756C63;
 @define-color light-transparent rgba (117, 108, 99, 0.8);
 @define-color dark #191617;
 @define-color white #ffffff;
 @define-color black #000000;
-
+@define-color red #A30000;
+/*--------------------------------------------------*/
 /* General */
+/*--------------------------------------------------*/
 * {
 	font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
 	border: none;
@@ -17,8 +20,9 @@ window#waybar {
 	transition-property: background-color;
 	transition-duration: 0.5s;
 }
-
+/*--------------------------------------------------*/
 /* Workspaces */
+/*--------------------------------------------------*/
 #workspaces {
 	font-weight: bold;
 	font-size: 14px;
@@ -46,11 +50,12 @@ window#waybar {
 	background: @dark;
 	text-shadow: none;
 }
-
+/*--------------------------------------------------*/
 /* Tooltips */
+/*--------------------------------------------------*/
 tooltip {
 	background-color: @dark;
-	opacity: 1;
+	opacity: 0.95;
 	padding: 20px;
 	margin: 0px;
 	border: 1px solid @light;
@@ -59,8 +64,9 @@ tooltip {
 tooltip label {
 	color: @light;
 }
-
+/*--------------------------------------------------*/
 /* Active window (text) */
+/*--------------------------------------------------*/
 #window {
 	margin: 5px 5px;
 	padding: 0px 5px;
@@ -72,6 +78,103 @@ tooltip label {
 }
 
 window#waybar.empty #window {
-	background-color:transparent;
-	border: 0px solid @dark;
+	background-color: transparent;
+	border: none;
+}
+/*--------------------------------------------------*/
+/* Taskbar */
+/*--------------------------------------------------*/
+#taskbar {
+	background: transparent;
+	margin: 2px;
+	font-weight: normal;
+	font-style: normal;
+	
+}
+
+#taskbar button {
+	margin: 0;
+	padding: 1px 8px;
+}
+
+#taskbar button:hover {
+	background: @dark;
+}
+
+#taskbar.empty {
+	background: transparent;
+	border: none;
+	padding: 0;
+	margin: 0;
+	min-width: 0;
+}
+/*--------------------------------------------------*/
+/* Clock */
+/*--------------------------------------------------*/
+#clock {
+	margin: 5px 5px 5px 2px;
+	padding: 0px 5px;
+	background: @light;
+	color: @dark;
+	font-size: 14px;
+	font-weight: normal;
+	border: 2px solid @dark;
+}
+/*--------------------------------------------------*/
+/* Custom Exit */
+/*--------------------------------------------------*/
+#custom-exit {
+	margin: 5px 2px;
+	padding: 0px 9px 0px 5px;
+	background: @light;
+	color: @dark;
+	font-size: 14px;
+	font-weight: normal;
+	border: 2px solid @dark;
+}
+/*--------------------------------------------------*/
+/* Network */
+/*--------------------------------------------------*/
+#network {
+	margin: 5px 2px;
+	padding: 0px 5px;
+	background: @light;
+	color: @dark;
+	font-size: 14px;
+	font-weight: normal;
+	border: 2px solid @dark;
+}
+
+#network.disconnected {
+	background-color: @red;
+}
+/*--------------------------------------------------*/
+/* Hardware Group */
+/*--------------------------------------------------*/
+#disk,
+#memory,
+#cpu {
+	margin: 5px 2px;
+	padding: 0px 5px;
+	background: @light;
+	color: @dark;
+	font-size: 14px;
+	font-weight: normal;
+	border: 2px solid @dark;
+}
+/*--------------------------------------------------*/
+/* Pulseaudio */
+/*--------------------------------------------------*/
+#pulseaudio {
+	margin: 5px 2px;
+	padding: 0px 5px;
+	background: @light;
+	color: @dark;
+	font-size: 14px;
+	font-weight: normal;
+	border: 2px solid @dark;
+}
+
+#pulseaudio.muted {
+	background-color: @red;
 }

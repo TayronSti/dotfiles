@@ -56,18 +56,18 @@
 
     // CPU
     "cpu": {
-        "format": "C {usage}% "
+        "format": "C {usage}%"
     },
 
     // Memory
     "memory": {
-        "format": "M {}% "
+        "format": "M {}%"
     },
 
     // Harddisc space used
     "disk": {
         "interval": 30,
-        "format": "D {percentage_used}% ",
+        "format": "D {percentage_used}%",
         "path": "/"
     },
 
@@ -84,8 +84,8 @@
     // Network
     "network": {
         "format": "{ifname}",
-        "format-wifi": "   {signalStrength}%",
-        "format-ethernet": "  {ifname}",
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": " {ifname}",
         "format-disconnected": "Disconnected",
         "tooltip-format": " {ifname} via {gwaddri}",
         "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
@@ -98,7 +98,7 @@
     // Pulseaudio
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{icon}   {volume}%",
+        "format": "{icon} {volume}%",
         "format-bluetooth": "{volume}%  {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
