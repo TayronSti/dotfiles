@@ -1,0 +1,27 @@
+{
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "control-center-layer": "top",
+  "notification-window-width": 420,
+  "fit-to-screen": true,
+
+  "widgets": [
+    "title",
+    "dnd",
+    "notifications"
+  ],
+
+  "widget-config": {
+    "title": {
+      "text": "Benachrichtigungen",
+      "clear-all-button": true
+    },
+    "dnd": {
+      "text": "Nicht stören"
+    },
+    "notifications": {
+      "show-all": true
+    }
+  }
+}
