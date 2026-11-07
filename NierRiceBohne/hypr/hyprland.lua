@@ -344,9 +344,10 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
--- screenshots
-hl.bind("Print", hl.dsp.exec_cmd("grim ~/Bilder/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png"))	
-hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | tee ~/Bilder/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy --type image/png"))
+-- screenshots (Ordner wird bei Bedarf angelegt, folgt dem Bilder-Ordner des Systems)
+local shots = [[d="$(xdg-user-dir PICTURES 2>/dev/null || echo "$HOME/Pictures")/Screenshots"; mkdir -p "$d"; ]]
+hl.bind("Print", hl.dsp.exec_cmd(shots .. [[grim "$d/$(date +'%Y-%m-%d_%H-%M-%S').png"]]))
+hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd(shots .. [[grim -g "$(slurp)" - | tee "$d/$(date +'%Y-%m-%d_%H-%M-%S').png" | wl-copy --type image/png]]))
 
 -- clip history
 hl.bind("SUPER + V", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"))
