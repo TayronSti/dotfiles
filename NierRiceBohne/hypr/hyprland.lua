@@ -80,11 +80,12 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("swaync && swaync-client --change-noti-monitor 'DP-3'")
 	hl.exec_cmd("hyprswitch init --show-title")
 	hl.exec_cmd("hyprpaper")
+	hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
 	
 	-- Desktop
-	hl.exec_cmd("kitty --class nier-btop -e btop")
-	hl.exec_cmd("kitty --class nier-cava -e cava")
-	hl.exec_cmd("kitty --class nier-terminal")
+	hl.exec_cmd("sleep 1; kitty --class nier-cava -e cava")
+	hl.exec_cmd("sleep 2; hyprctl dispatch workspace 6; hyprctl dispatch layoutmsg preselect r; kitty --class nier-terminal")
+	hl.exec_cmd("sleep 3; hyprctl dispatch workspace 6; hyprctl dispatch layoutmsg preselect d; kitty --class nier-btop -e btop")
 end)
 
 -------------------------------
@@ -430,4 +431,15 @@ hl.window_rule({
     name = "nier-cava",
     match = { class = "^nier-cava$" },
     workspace = "6",
+})
+
+hl.window_rule({
+    name = "aion-dps-meter",
+    match = {
+        class = "^(a2tools\\-dps\\-meter)$",
+    },
+    float = true,
+    pin = true,
+    no_blur = true,
+    border_size = 0,
 })
