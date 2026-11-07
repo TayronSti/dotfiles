@@ -108,4 +108,4 @@ if ! systemctl is-active --quiet NetworkManager; then
   echo "  - Netzwerk: nm-applet und nmtui brauchen NetworkManager:"
   echo "    sudo systemctl enable --now NetworkManager  (nur, wenn nicht schon ein anderer Netzwerkdienst läuft)"
 fi
-echo "  - Danach ab- und wieder anmelden bzw. Hyprland starten."
+echo "  - Danach ab- und wieder anmelden und Hyprland mit start-hyprland starten."

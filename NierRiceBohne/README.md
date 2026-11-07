@@ -36,7 +36,7 @@ Nur die Configs verlinken, ohne Pakete:
 ./link.sh
 ```
 
-Gestartet wird Hyprland aus dem TTY oder über einen Login-Manager, die aktuelle Startmethode steht im Hyprland-Wiki.
+Gestartet wird Hyprland im TTY mit `start-hyprland` (nicht mit `Hyprland`) oder über einen Login-Manager.
 
 ## Pro Rechner anpassen
 
