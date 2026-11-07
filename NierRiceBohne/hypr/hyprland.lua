@@ -64,7 +64,10 @@ hl.on("hyprland.start", function ()
 	hl.exec_cmd("nm-applet")
 	hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
 	hl.exec_cmd("waybar")
-	hl.exec_cmd("swaync && swaync-client --change-noti-monitor 'DP-3'")
+	hl.exec_cmd("swaync")
+	if NOTI_MONITOR then
+		hl.exec_cmd("sleep 2; swaync-client --change-noti-monitor '" .. NOTI_MONITOR .. "'")
+	end
 	hl.exec_cmd("hyprswitch init --show-title")
 	hl.exec_cmd("hyprpaper")
 	hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")

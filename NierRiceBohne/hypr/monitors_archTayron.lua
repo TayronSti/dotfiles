@@ -1,3 +1,6 @@
+-- Monitor, auf dem Benachrichtigungen erscheinen sollen
+NOTI_MONITOR = "DP-3"
+
 -- Desktop-PC: 2 Monitore
 hl.monitor({
     output   = "DP-3",
