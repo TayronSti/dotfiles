@@ -22,7 +22,8 @@ OFFICIAL_PKGS=(
   hyprland hyprpaper hyprpolkitagent xdg-desktop-portal-hyprland
   waybar swaync fuzzel kitty fish fastfetch cava btop
   cliphist wl-clipboard grim slurp xdg-user-dirs
-  networkmanager network-manager-applet pavucontrol playerctl
+  networkmanager network-manager-applet
+  pipewire pipewire-pulse wireplumber pavucontrol playerctl
   dolphin gnome-keyring
   ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
 )
@@ -103,6 +104,8 @@ if [ ! -f "$REPO/hypr/monitors_${host}.lua" ]; then
   echo "    Eigene Datei anlegen: hypr/monitors_${host}.lua (Monitornamen zeigt: hyprctl monitors)"
 fi
 
-echo "  - Netzwerk: nm-applet und nmtui brauchen NetworkManager:"
-echo "    sudo systemctl enable --now NetworkManager  (nur, wenn nicht schon ein anderer Netzwerkdienst läuft)"
+if ! systemctl is-active --quiet NetworkManager; then
+  echo "  - Netzwerk: nm-applet und nmtui brauchen NetworkManager:"
+  echo "    sudo systemctl enable --now NetworkManager  (nur, wenn nicht schon ein anderer Netzwerkdienst läuft)"
+fi
 echo "  - Danach ab- und wieder anmelden bzw. Hyprland starten."
