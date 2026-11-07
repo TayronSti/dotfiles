@@ -3,6 +3,7 @@ set -euo pipefail
 
 REPO="$(cd "$(dirname "$0")" && pwd)"
 CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}"
+mkdir -p "$CONFIG"
 APPS=(hypr waybar swaync fuzzel kitty fish fastfetch cava)
 
 for app in "${APPS[@]}"; do
