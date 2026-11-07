@@ -22,33 +22,20 @@
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-hl.monitor({
-    output   = "DP-3",
-    mode     = "2560x1440@143.91",
-    position = "0x0",
-    scale    = "1",
-})
+-- Monitore: pro Rechner eine Datei monitors_<hostname>.lua, sonst monitors_default.lua
+local host = "default"
+pcall(function()
+    local f = io.open("/etc/hostname", "r")
+    if f then
+        host = (f:read("*l") or "default"):gsub("[^%w_-]", "")
+        f:close()
+    end
+end)
 
-hl.monitor({
-    output   = "HDMI-A-1",
-    mode     = "1920x1080@100",
-    position = "2560x0",
-    scale    = "1",
-})
-
--- Workspace-Zuweisung
-for i = 1, 5 do
-    hl.workspace_rule({
-        workspace = tostring(i),
-        monitor = "DP-3"
-    })
-end
-
-for i = 6, 10 do
-    hl.workspace_rule({
-        workspace = tostring(i),
-        monitor = "HDMI-A-1"
-    })
+if package.searchpath("monitors_" .. host, package.path) then
+    require("monitors_" .. host)
+else
+    require("monitors_default")
 end
 
 ---------------------
