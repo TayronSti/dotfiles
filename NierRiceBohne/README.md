@@ -76,3 +76,4 @@ Screenshots landen im Unterordner `Screenshots` des Bilder-Ordners des Systems.
 - **Fensterwechsler**: `ALT + TAB` nutzt `hyprswitch` aus dem AUR. Das ist ein Fork des ursprünglichen Projekts (das heißt inzwischen `hyprshell`), er wird mit Version 5 für Hyprlands Lua-Config gepflegt. Wer lieber `hyprshell` nutzen will, muss die Aufrufe in `hyprland.lua` anpassen.
 - **Sperrbildschirm**: Es gibt noch keinen (kein `hyprlock`).
 - **Persönliche Regel**: `hyprland.lua` enthält eine Fensterregel für den DPS-Meter eines Spiels (`a2tools-dps-meter`), die auf anderen Rechnern keine Wirkung hat.
+- **Waybar**: Die Workspace-Buttons in der Leiste funktionieren mit Hyprlands Lua-Config nur mit `waybar-git` (AUR). Das offizielle Paket (0.15.0) hat den Fix noch nicht. Sobald ein Release mit dem Fix erscheint, kann man auf das offizielle `waybar` wechseln.

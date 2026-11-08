@@ -20,7 +20,7 @@ fi
 OFFICIAL_PKGS=(
   base-devel git less
   hyprland hyprpaper hyprpolkitagent xdg-desktop-portal-hyprland
-  waybar swaync fuzzel kitty fish fastfetch cava btop
+  swaync fuzzel kitty fish fastfetch cava btop
   cliphist wl-clipboard grim slurp xdg-user-dirs
   networkmanager network-manager-applet
   pipewire pipewire-pulse wireplumber pavucontrol playerctl
@@ -34,6 +34,7 @@ OFFICIAL_PKGS=(
 AUR_PKGS=(
   wlogout
   hyprswitch
+  waybar-git
 )
 
 echo "==> System aktualisieren"
