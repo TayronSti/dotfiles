@@ -24,7 +24,7 @@ OFFICIAL_PKGS=(
   cliphist wl-clipboard grim slurp xdg-user-dirs
   networkmanager network-manager-applet
   pipewire pipewire-pulse wireplumber pavucontrol playerctl
-  dolphin gnome-keyring
+  dolphin gnome-keyring qt5-wayland qt6-wayland libnotify
   ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
 )
 
