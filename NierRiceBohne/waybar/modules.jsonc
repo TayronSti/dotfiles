@@ -29,18 +29,18 @@
 	   "nier-terminal"
         ],
         "rewrite": {
-            "Vivaldi": "vivaldi",
-            "Foot Server": "Terminal"
-        }
+    	   ".*Mozilla Firefox$": "Firefox",
+    	   "Foot Server": "Terminal"
+	}
     },
 
     // Hyprland Window
     "hyprland/window": {
         "rewrite": {
-            ".* - (Vivaldi)$": "$1"
+            ".*(Mozilla Firefox)$": "$1"
         },
         "separate-outputs": true,
-	"tooltip": false
+        "tooltip": false
     },
 
     // Power Menu
