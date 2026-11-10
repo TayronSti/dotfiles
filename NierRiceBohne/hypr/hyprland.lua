@@ -70,6 +70,7 @@ hl.on("hyprland.start", function ()
 	end
 	hl.exec_cmd("hyprswitch init --show-title")
 	hl.exec_cmd("hyprpaper")
+hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme prefer-dark")
 	hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
 	
 	-- Desktop
