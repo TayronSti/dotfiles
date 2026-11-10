@@ -197,3 +197,34 @@ window#waybar.empty #window {
 #pulseaudio.muted {
 	color: @red;
 }
+/*--------------------------------------------------*/
+/* Tray */
+/*--------------------------------------------------*/
+#custom-tray-handle {
+	margin: 5px 0px;
+	padding: 0px;
+	background: @light;
+	color: @dark;
+	font-size: 15px;
+	font-weight: normal;
+}
+
+#custom-tray-handle:hover {
+	background: @dark;
+	color: @light;
+	transition: all 0.3s ease-in-out;
+}
+
+#tray {
+	margin: 5px 0px;
+	padding: 0px 6px;
+	background: @light;
+}
+
+#tray > .passive {
+	-gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+	-gtk-icon-effect: highlight;
+}

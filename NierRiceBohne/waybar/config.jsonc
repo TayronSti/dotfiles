@@ -7,7 +7,7 @@
   "margin-top": 8,
   "margin-bottom": -4,
 
-  "height": 16,
+  "height": 36,
   "margin-left": 12,
   "margin-right": 12,
   "spacing": 0,
@@ -31,6 +31,7 @@
 	  "pulseaudio",
 	  "group/hardware",
 	  "network",
+	  "group/tray-drawer",
 	  "custom/exit",
 	  "clock"
   ]

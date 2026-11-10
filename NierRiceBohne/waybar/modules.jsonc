@@ -71,7 +71,7 @@
     "disk": {
         "interval": 30,
         "format": "[ DSK {percentage_used}% ",
-        "path": "/"
+        "paths": ["/"]
     },
 
     // Group Hardware
@@ -108,5 +108,26 @@
         "format-source": "[ {volume}%  ]",
         "format-source-muted": "[   ]",
         "on-click": "pavucontrol"
+    },
+    // Tray (Griff immer sichtbar, Icons klappen beim Anklicken auf)
+    "group/tray-drawer": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "transition-left-to-right": false,
+            "click-to-reveal": true
+        },
+        "modules": ["custom/tray-handle", "tray"]
+    },
+
+    "custom/tray-handle": {
+        "format": "[ TRAY ]",
+        "tooltip-format": "Hintergrundprogramme"
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8,
+        "show-passive-items": true
     }
 }
