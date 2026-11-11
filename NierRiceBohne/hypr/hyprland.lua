@@ -310,24 +310,7 @@ hl.window_rule({
     workspace = "6",
 })
 
-hl.window_rule({
-    name = "aion-dps-meter",
-    match = {
-        class = "^(a2tools\\-dps\\-meter)$",
-    },
-    float = true,
-    pin = true,
-    no_blur = true,
-    border_size = 0,
-})
-
-hl.window_rule({
-    name = "awakened-poe-trade",
-    match = {
-        class = "^awakened-poe-trade$",
-    },
-    float = true,
-    pin = true,
-    no_blur = true,
-    border_size = 0,
-})
+-- Persönliche Fensterregeln für Spiel-Overlays (optional, siehe hypr/games.lua)
+if package.searchpath("games", package.path) then
+    require("games")
+end
