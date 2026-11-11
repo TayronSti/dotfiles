@@ -7,7 +7,7 @@ Mein Hyprland-Rice für Arch Linux im Look von NieR: gedämpftes Braun/Grau, eck
 
 | Ordner | Programm |
 | --- | --- |
-| `hypr` | Hyprland (Lua-Config), Hyprpaper, Wallpaper, Monitor-Dateien |
+| `hypr` | Hyprland (Lua-Config), Hyprpaper, Hyprlock, Wallpaper, Monitor-Dateien |
 | `waybar` | Statusleiste |
 | `swaync` | Benachrichtigungen und Kontrollzentrum |
 | `fuzzel` | Programmstarter |
@@ -56,6 +56,7 @@ Für einen neuen Rechner:
 | `SUPER + R` | Programmstarter (fuzzel) |
 | `SUPER + E` | Dateimanager (dolphin) |
 | `SUPER + C` | Fenster schließen |
+| `SUPER + L` | Bildschirm sperren (nur von Hand, bewusst kein hypridle) |
 | `SUPER + M` | Hyprland beenden |
 | `SUPER + F` / `SUPER + SHIFT + F` | Maximieren / Vollbild |
 | `SUPER + 1…0` | Workspace wechseln |
@@ -73,6 +74,5 @@ Screenshots landen im Unterordner `Screenshots` des Bilder-Ordners des Systems.
 ## Bekannte Lücken
 
 - **Fensterwechsler**: `ALT + TAB` nutzt `hyprswitch` aus dem AUR. Das ist ein Fork des ursprünglichen Projekts (das heißt inzwischen `hyprshell`), er wird mit Version 5 für Hyprlands Lua-Config gepflegt. Wer lieber `hyprshell` nutzen will, muss die Aufrufe in `hyprland.lua` anpassen.
-- **Sperrbildschirm**: Es gibt noch keinen (kein `hyprlock`).
 - **Persönliche Fensterregeln**: Regeln für Spiel-Overlays liegen in `hypr/games.lua` und sind optional. Wer sie nicht braucht, löscht die Datei, `hyprland.lua` überspringt sie dann.
 - **Waybar**: Die Workspace-Buttons in der Leiste funktionieren mit Hyprlands Lua-Config nur mit `waybar-git` (AUR). Das offizielle Paket (0.15.0) hat den Fix noch nicht. Sobald ein Release mit dem Fix erscheint, kann man auf das offizielle `waybar` wechseln.

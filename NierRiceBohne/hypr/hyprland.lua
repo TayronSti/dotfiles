@@ -165,6 +165,9 @@ hl.config({
         force_default_wallpaper  = 0,    -- Set to 0 or 1 to disable the anime mascot wallpapers
         disable_hyprland_logo    = true, -- If true disables the random hyprland logo / anime girl background. :(
         disable_splash_rendering = true,
+
+        -- Sicherheitsnetz: erlaubt, hyprlock neu zu starten, falls es abstürzt
+        allow_session_lock_restore = true,
     },
 })
 
@@ -259,6 +262,9 @@ hl.bind("ALT + TAB", hl.dsp.exec_cmd("hyprswitch gui --mod-key ALT --key TAB"))
 
 -- waybar restart
 hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("$HOME/.config/waybar/launch.sh"))
+
+-- lock screen (hyprlock), pidof verhindert mehrere Instanzen; es gibt bewusst kein hypridle
+hl.bind("SUPER + L", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
 
 
 --------------------------------

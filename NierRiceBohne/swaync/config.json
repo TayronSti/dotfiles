@@ -50,6 +50,10 @@
         "buttons-grid": {
             "actions": [
                 {
+                    "label": "󰌾",
+                    "command": "pidof hyprlock || hyprlock"
+                },
+                {
                     "label": "󰐥",
                     "command": "systemctl poweroff"
                 },

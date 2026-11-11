@@ -19,7 +19,7 @@ fi
 # --- Pakete aus den offiziellen Repos ---------------------------------------
 OFFICIAL_PKGS=(
   base-devel git less
-  hyprland hyprpaper hyprpolkitagent xdg-desktop-portal-hyprland
+  hyprland hyprpaper hyprlock hyprpolkitagent xdg-desktop-portal-hyprland
   swaync fuzzel kitty fish fastfetch cava btop
   cliphist wl-clipboard grim slurp xdg-user-dirs
   networkmanager network-manager-applet
