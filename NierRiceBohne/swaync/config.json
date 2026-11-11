@@ -1,9 +1,8 @@
 {
- 
     "$schema": "/etc/xdg/swaync/configSchema.json",
     "positionX": "right",
     "positionY": "top",
-	"layer": "overlay",
+    "layer": "overlay",
     "control-center-margin-top": 12,
     "control-center-margin-bottom": 10,
     "control-center-margin-right": 12,
@@ -27,8 +26,8 @@
         "title",
         "dnd",
         "notifications",
-		"mpris",
-		"volume",
+        "mpris",
+        "volume",
         "buttons-grid"
     ],
     "widget-config": {
@@ -40,17 +39,13 @@
         "dnd": {
             "text": "Do Not Disturb"
         },
-        "label": {
-            "max-lines": 1,
-            "text": "Notification Center"
-        },
         "mpris": {
             "image-size": 96,
             "image-radius": 0
         },
         "volume": {
             "label": "󰕾",
-			"show-per-app": true
+            "show-per-app": true
         },
         "buttons-grid": {
             "actions": [
@@ -64,7 +59,7 @@
                 },
                 {
                     "label": "󰍃",
-		    "command": "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
+                    "command": "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"
                 },
                 {
                     "label": "󰤄",

@@ -2,10 +2,8 @@
 /* Colors */
 /*--------------------------------------------------*/
 @define-color light #756C63;
-/*@define-color light-transparent rgba (117, 108, 99, 0.8);*/
 @define-color dark #191617;
 @define-color white #ffffff;
-@define-color black #000000;
 @define-color red #A30000;
 @define-color green #2CFF05;
 /*--------------------------------------------------*/

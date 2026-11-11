@@ -1,18 +1,11 @@
 {
     // Workspaces
-    "hyprland/workspaces" : {        
-	"tooltip": false,
-	"active-only": false,
-        "all-outputs": false,
+    "hyprland/workspaces" : {
+        "tooltip": false,
         "format": "{}",
-        "format-icons": {
-            "urgent": "",
-            "active": "",
-            "default": ""
-        },
         "persistent-workspaces": {
             "*": 5
-        }	
+        }
     },
 
     // Taskbar
@@ -23,15 +16,14 @@
         "on-click": "activate",
         "on-click-middle": "close",
         "ignore-list": [
-           "kitty",
-	   "btop",
-	   "cava",
-	   "nier-terminal"
+            "kitty",
+            "btop",
+            "cava",
+            "nier-terminal"
         ],
         "rewrite": {
-    	   ".*Mozilla Firefox$": "Firefox",
-    	   "Foot Server": "Terminal"
-	}
+            ".*Mozilla Firefox$": "Firefox"
+        }
     },
 
     // Hyprland Window
@@ -52,9 +44,9 @@
 
     // Clock
     "clock": {
-    	"format": "[ {:%H:%M // %a} ]",
-    	"tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
-    	"format-alt": "[ {:%d.%m.%Y} ]"
+        "format": "[ {:%H:%M // %a} ]",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "[ {:%d.%m.%Y} ]"
     },
 
     // CPU
@@ -76,7 +68,7 @@
 
     // Group Hardware
     "group/hardware": {
-        "orientation": "inherit",  
+        "orientation": "inherit",
         "modules": [
             "disk",
             "cpu",
@@ -100,15 +92,11 @@
 
     // Pulseaudio
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
         "format": "[ VOL {volume}% ]",
-        "format-bluetooth": "[ {volume}%  {icon} {format_source} ]",
-        "format-bluetooth-muted": "[  {icon} {format_source} ]",
-        "format-muted": "{format_source}",
-        "format-source": "[ {volume}%  ]",
-        "format-source-muted": "[   ]",
+        "format-muted": "[ MUTED ]",
         "on-click": "pavucontrol"
     },
+
     // Tray (Griff immer sichtbar, Icons klappen beim Anklicken auf)
     "group/tray-drawer": {
         "orientation": "inherit",
