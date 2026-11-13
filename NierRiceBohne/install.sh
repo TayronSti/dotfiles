@@ -20,7 +20,7 @@ fi
 OFFICIAL_PKGS=(
   base-devel git less
   hyprland hyprpaper hyprlock hyprpolkitagent xdg-desktop-portal-hyprland
-  swaync fuzzel kitty fish fastfetch cava btop
+  waybar swaync fuzzel kitty fish fastfetch cava btop
   cliphist wl-clipboard grim slurp xdg-user-dirs
   networkmanager network-manager-applet
   pipewire pipewire-pulse wireplumber pavucontrol playerctl
@@ -34,7 +34,6 @@ OFFICIAL_PKGS=(
 AUR_PKGS=(
   wlogout
   hyprswitch
-  waybar-git
 )
 
 echo "==> System aktualisieren"
@@ -72,11 +71,16 @@ if [ -z "$HELPER" ]; then
   fi
 fi
 
+# Jedes AUR-Paket einzeln: scheitert eines, werden die anderen trotzdem installiert
+FAILED_AUR=()
 if [ -n "$HELPER" ]; then
   echo "==> AUR-Pakete installieren ($HELPER)"
-  "$HELPER" -S --needed "${AUR_PKGS[@]}" || echo "Warnung: AUR-Installation fehlgeschlagen, bitte von Hand nachholen: ${AUR_PKGS[*]}"
+  for p in "${AUR_PKGS[@]}"; do
+    "$HELPER" -S --needed "$p" || FAILED_AUR+=("$p")
+  done
 else
-  echo "AUR-Pakete übersprungen, bitte später installieren: ${AUR_PKGS[*]}"
+  echo "AUR-Pakete übersprungen."
+  FAILED_AUR=("${AUR_PKGS[@]}")
 fi
 
 # --- Configs verlinken -----------------------------------------------------------
@@ -97,6 +101,11 @@ echo "==> Fertig. Noch zu erledigen:"
 
 if [ "${#MISSING[@]}" -gt 0 ]; then
   echo "  - Diese Pakete wurden in den Repos nicht gefunden und übersprungen: ${MISSING[*]}"
+fi
+
+if [ "${#FAILED_AUR[@]}" -gt 0 ]; then
+  echo "  - Diese AUR-Pakete konnten nicht installiert werden: ${FAILED_AUR[*]}"
+  echo "    Später nachholen mit: paru -S ${FAILED_AUR[*]}"
 fi
 
 host="$(cat /etc/hostname 2>/dev/null | tr -cd 'A-Za-z0-9_-' || true)"
