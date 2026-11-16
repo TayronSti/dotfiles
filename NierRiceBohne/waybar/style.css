@@ -2,53 +2,75 @@
 /* Colors */
 /*--------------------------------------------------*/
 @define-color light #756C63;
+@define-color mid #4A4541;
 @define-color dark #191617;
-@define-color white #ffffff;
-@define-color red #A30000;
+@define-color beige #DAD4BB;
+@define-color red #E04040;
 @define-color green #2CFF05;
 /*--------------------------------------------------*/
 /* General */
 /*--------------------------------------------------*/
 * {
 	font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	min-height: 0;
 	border: none;
 	border-radius: 0px;
 }
 
 window#waybar {
-	background-color: @light;
-	transition-property: background-color;
-	transition-duration: 0.5s;
+	background: transparent;
+}
+/*--------------------------------------------------*/
+/* Panels: jedes Modul ist ein eckiger dunkler Kasten */
+/*--------------------------------------------------*/
+#workspaces,
+#window,
+#taskbar,
+#pulseaudio,
+#hardware,
+#network,
+#custom-tray-handle,
+#tray,
+#custom-exit,
+#clock {
+	background: @dark;
+	color: @light;
+	border: 1px solid @light;
+	padding: 2px 8px;
+	margin: 3px 3px;
 }
 /*--------------------------------------------------*/
 /* Workspaces */
 /*--------------------------------------------------*/
 #workspaces {
-	font-weight: bold;
-	font-size: 14px;
-	background: @light;
-	border-right: 2px solid @dark;
-	border-left: 2px solid @dark;
-	padding: 0px 4px;
-	margin: 2px 0px;
+	padding: 2px 6px;
 }
 
 #workspaces button {
-	color: @dark;
-	background: @light;
-	transition: all 0.3s ease-in-out;
+	font-size: 14px;
+	padding: 0px 4px;
+	min-width: 0;
+	color: @light;
+	background: transparent;
+	background-image: none;
+	box-shadow: none;
+	text-shadow: none;
 }
 
 #workspaces button.active {
-	color: @light;
-	background: @dark;
-	transition: all 0.3s ease-in-out;
+	color: @beige;
+}
+
+#workspaces button.urgent {
+	color: @red;
 }
 
 #workspaces button:hover {
-	color: @white;
-	background: @dark;
-	text-shadow: none;
+	color: @beige;
+	background: transparent;
+	background-image: none;
 }
 /*--------------------------------------------------*/
 /* Tooltips */
@@ -67,38 +89,23 @@ tooltip label {
 /*--------------------------------------------------*/
 /* Active window (text) */
 /*--------------------------------------------------*/
-#window {
-	margin: 5px 5px;
-	padding: 0px 5px;
-	background: @light;
-	color: @dark;
-	font-size: 14px;
-	font-weight: normal;
-	border: 2px solid @dark;
-}
-
 window#waybar.empty #window {
-	background-color: transparent;
+	background: transparent;
 	border: none;
+	padding: 0;
+	margin: 0;
 }
 /*--------------------------------------------------*/
 /* Taskbar */
 /*--------------------------------------------------*/
-#taskbar {
-	background: transparent;
-	margin: 2px;
-	font-weight: normal;
-	font-style: normal;
-	
-}
-
 #taskbar button {
 	margin: 0;
-	padding: 1px 8px;
+	padding: 0px 4px;
+	background: transparent;
 }
 
 #taskbar button:hover {
-	background: @dark;
+	background: @mid;
 }
 
 #taskbar.empty {
@@ -112,48 +119,24 @@ window#waybar.empty #window {
 /* Clock */
 /*--------------------------------------------------*/
 #clock {
-	margin: 5px 10px 5px 0px;
-	padding: 0px;
-	background: @light;
-	color: @dark;
-	font-size: 15px;
-	font-weight: normal;
+	color: @beige;
 }
 /*--------------------------------------------------*/
-/* Custom Exit */
+/* Hover: klickbare Panels */
 /*--------------------------------------------------*/
-#custom-exit {
-	margin: 5px 0px;
-	padding: 0px;
-	background: @light;
-	color: @dark;
-	font-size: 15px;
-	font-weight: normal;
+#custom-exit:hover,
+#custom-tray-handle:hover {
+	color: @beige;
+	border-color: @beige;
 }
 
-#custom-exit:hover {
-	background: @dark;
-	color: @light;
-	transition: all 0.3s ease-in-out;
+#network:hover,
+#pulseaudio:hover {
+	border-color: @beige;
 }
 /*--------------------------------------------------*/
 /* Network */
 /*--------------------------------------------------*/
-#network {
-	margin: 5px 0px;
-	padding: 0px;
-	background: @light;
-	color: @dark;
-	font-size: 15px;
-	font-weight: normal;
-}
-
-#network:hover {
-	background: @dark;
-	color: @light;
-	transition: all 0.3s ease-in-out;
-}
-
 #network.disconnected {
 	color: @red;
 }
@@ -162,63 +145,26 @@ window#waybar.empty #window {
 	color: @green;
 }
 /*--------------------------------------------------*/
-/* Hardware Group */
+/* Hardware Group (ein Panel mit drei Werten) */
 /*--------------------------------------------------*/
 #disk,
 #memory,
 #cpu {
-	margin: 5px 0px;
-	padding: 0px;
-	background: @light;
-	color: @dark;
-	font-size: 15px;
-	font-weight: normal;
+	background: transparent;
+	color: @light;
+	margin: 0;
+	padding: 0;
+	border: none;
 }
 /*--------------------------------------------------*/
 /* Pulseaudio */
 /*--------------------------------------------------*/
-#pulseaudio {
-	margin: 5px 0px;
-	padding: 0px;
-	background: @light;
-	color: @dark;
-	font-size: 15px;
-	font-weight: normal;
-}
-
-#pulseaudio:hover {
-	background: @dark;
-	color: @light;
-	transition: all 0.3s ease-in-out;
-}
-
 #pulseaudio.muted {
 	color: @red;
 }
 /*--------------------------------------------------*/
 /* Tray */
 /*--------------------------------------------------*/
-#custom-tray-handle {
-	margin: 5px 0px;
-	padding: 0px;
-	background: @light;
-	color: @dark;
-	font-size: 15px;
-	font-weight: normal;
-}
-
-#custom-tray-handle:hover {
-	background: @dark;
-	color: @light;
-	transition: all 0.3s ease-in-out;
-}
-
-#tray {
-	margin: 5px 0px;
-	padding: 0px 6px;
-	background: @light;
-}
-
 #tray > .passive {
 	-gtk-icon-effect: dim;
 }
