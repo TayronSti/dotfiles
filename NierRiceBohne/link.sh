@@ -17,9 +17,17 @@ for app in "${APPS[@]}"; do
 done
 
 # Einzelne Dateien (der restliche Ordner bleibt unberührt)
-FILES=(gtk-3.0/settings.ini gtk-4.0/settings.ini)
+FILES=(
+  gtk-3.0/settings.ini
+  gtk-4.0/settings.ini
+  "input-remapper-2/presets/Logitech G502 HERO Gaming Mouse/PoE.json"
+)
 
 for f in "${FILES[@]}"; do
+  if [ ! -e "$REPO/$f" ]; then
+    echo "übersprungen (fehlt im Repo): $f"
+    continue
+  fi
   target="$CONFIG/$f"
   mkdir -p "$(dirname "$target")"
   if [ -e "$target" ] && [ ! -L "$target" ]; then

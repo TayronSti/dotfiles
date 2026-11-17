@@ -83,6 +83,21 @@ else
   FAILED_AUR=("${AUR_PKGS[@]}")
 fi
 
+# --- Optional: Spiel-Zusatz (Maus-Profil für Path of Exile) ---------------------------
+read -r -p "Spiel-Zusatz installieren (input-remapper und socat für das PoE-Maus-Profil)? [J/n] " game_ans
+if [[ ! "$game_ans" =~ ^[nN]$ ]]; then
+  echo "==> Spiel-Zusatz installieren"
+  sudo pacman -S --needed socat || FAILED_AUR+=("socat")
+  if [ -n "$HELPER" ]; then
+    "$HELPER" -S --needed input-remapper || FAILED_AUR+=("input-remapper")
+  else
+    FAILED_AUR+=("input-remapper")
+  fi
+  if pacman -Q input-remapper >/dev/null 2>&1; then
+    sudo systemctl enable --now input-remapper.service || echo "Warnung: input-remapper-Dienst konnte nicht aktiviert werden."
+  fi
+fi
+
 # --- Configs verlinken -----------------------------------------------------------
 echo "==> Configs verlinken"
 bash "$REPO/link.sh"

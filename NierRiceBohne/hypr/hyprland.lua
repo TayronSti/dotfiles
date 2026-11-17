@@ -57,9 +57,6 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("sleep 1; kitty --class nier-terminal")
     hl.exec_cmd("sleep 1; kitty --class nier-btop -e btop")
 end)
-    hl.on("hyprland.start", function()
-    hl.exec_cmd("~/.config/hypr/poe-remap.sh")
-end)
 
 
 -------------------------------
