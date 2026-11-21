@@ -74,4 +74,4 @@ Screenshots landen im Unterordner `Screenshots` des Bilder-Ordners des Systems.
 ## Bekannte Lücken
 
 - **Fensterwechsler**: `ALT + TAB` nutzt `hyprswitch` aus dem AUR. Das ist ein Fork des ursprünglichen Projekts (das heißt inzwischen `hyprshell`), er wird mit Version 5 für Hyprlands Lua-Config gepflegt. Wer lieber `hyprshell` nutzen will, muss die Aufrufe in `hyprland.lua` anpassen.
-- **Persönliches Spiel-Setup**: `hypr/games.lua` (Fensterregeln für Spiel-Overlays und der Start von `hypr/poe-remap.sh`) ist optional. `poe-remap.sh` schaltet ein `input-remapper`-Preset für eine Logitech G502 nur an, solange Path of Exile im Fokus ist, und braucht `input-remapper`, `socat` und das Preset aus `input-remapper-2/`. `install.sh` fragt, ob der Zusatz installiert werden soll. Wer ihn nicht braucht, löscht `games.lua`, `hyprland.lua` überspringt die Datei dann.
+- **Persönliche Fensterregeln**: Regeln für Spiel-Overlays liegen in `hypr/games.lua` und sind optional. Wer sie nicht braucht, löscht die Datei, `hyprland.lua` überspringt sie dann.
