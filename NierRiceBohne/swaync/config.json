@@ -26,18 +26,17 @@
         "title",
         "dnd",
         "notifications",
-        "mpris",
         "volume",
         "buttons-grid"
     ],
     "widget-config": {
         "title": {
-            "text": "Notification Center",
+            "text": "NOTIFICATIONS",
             "clear-all-button": true,
-            "button-text": "󰆴 Clear All"
+            "button-text": "CLEAR ALL"
         },
         "dnd": {
-            "text": "Do Not Disturb"
+            "text": "DO NOT DISTURB"
         },
         "mpris": {
             "image-size": 96,
