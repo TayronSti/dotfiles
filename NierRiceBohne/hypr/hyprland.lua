@@ -316,6 +316,9 @@ hl.window_rule({
     workspace = "6",
 })
 
+-- Layer-Regeln (Blur für swaync und fuzzel), siehe hypr/layers.lua
+require("layers")
+
 -- Persönliche Fensterregeln für Spiel-Overlays (optional, siehe hypr/games.lua)
 if package.searchpath("games", package.path) then
     require("games")
