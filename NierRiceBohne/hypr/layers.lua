@@ -4,7 +4,7 @@
 
 hl.layer_rule({
     name         = "swaync-blur",
-    match        = { namespace = "^(swaync-control-center|swaync-notification-window)$" },
+    match        = { namespace = "^swaync-notification-window$" },
     blur         = true,
     ignore_alpha = 0.3,
 })
