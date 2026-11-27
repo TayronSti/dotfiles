@@ -1,7 +1,8 @@
 # NierRiceBohne
 
 Mein Hyprland-Rice für Arch Linux im Look von NieR: gedämpftes Braun/Grau, eckige Kanten, eckige Panels in der Leiste, beige Menüs wie im Spiel.
-n![Screenshot](screenshot.png)
+
+![Screenshot](screenshot.png)
 
 
 ## Was dabei ist
