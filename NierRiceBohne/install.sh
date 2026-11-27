@@ -34,6 +34,7 @@ OFFICIAL_PKGS=(
 AUR_PKGS=(
   wlogout
   hyprswitch
+  qt6ct-kde
 )
 
 echo "==> System aktualisieren"
