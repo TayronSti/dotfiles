@@ -1,5 +1,5 @@
--- Persönliche Fensterregeln für Spiel-Overlays.
--- Optional: Datei löschen, dann überspringt hyprland.lua sie.
+-- Personal window rules for game overlays.
+-- Optional: delete this file and hyprland.lua skips it.
 
 hl.window_rule({
     name = "aion-dps-meter",

@@ -42,8 +42,6 @@ To only link the configs without installing packages:
 
 Start Hyprland from the TTY with `start-hyprland` (not `Hyprland`), or use a login manager.
 
-Note: the output and comments of the scripts are in German.
-
 ## Login screen (optional)
 
 The SDDM theme in `sddm/` matches the lock screen. `install.sh` does not set up SDDM, because a login manager changes how the system boots.

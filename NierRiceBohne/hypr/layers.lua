@@ -1,6 +1,6 @@
--- Blur hinter den halbtransparenten Flächen (swaync und fuzzel).
--- ignore_alpha: völlig durchsichtige Bereiche der Layer werden nicht verschwommen.
--- Die Namen der Layer zeigt: hyprctl layers (während das Fenster offen ist)
+-- Blur behind the semi-transparent surfaces (swaync and fuzzel).
+-- ignore_alpha: fully transparent parts of a layer are not blurred.
+-- To see layer names: hyprctl layers (while the window is open)
 
 hl.layer_rule({
     name         = "swaync-blur",

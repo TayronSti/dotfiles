@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
-# NierRiceBohne - Installation auf frischem Arch Linux
-# Installiert Pakete und verlinkt die Configs nach ~/.config (über link.sh).
-# Als normaler Nutzer starten, nicht als root. sudo wird bei Bedarf gefragt.
+# NierRiceBohne - installation on a fresh Arch Linux
+# Installs the packages and links the configs into ~/.config (via link.sh).
+# Run as a regular user, not as root. sudo asks for your password when needed.
 set -euo pipefail
 
 REPO="$(cd "$(dirname "$0")" && pwd)"
 
 if [ "$EUID" -eq 0 ]; then
-  echo "Bitte nicht als root starten, sondern als normaler Nutzer."
+  echo "Please don't run this as root, run it as a regular user."
   exit 1
 fi
 
 if ! command -v pacman >/dev/null 2>&1; then
-  echo "pacman nicht gefunden - dieses Skript ist nur für Arch Linux."
+  echo "pacman not found - this script is for Arch Linux only."
   exit 1
 fi
 
-# --- Pakete aus den offiziellen Repos ---------------------------------------
+# --- Packages from the official repos ----------------------------------------
 OFFICIAL_PKGS=(
   base-devel git less
   hyprland hyprpaper hyprlock hyprpolkitagent xdg-desktop-portal-hyprland
@@ -28,16 +28,16 @@ OFFICIAL_PKGS=(
   ttf-jetbrains-mono-nerd ttf-nerd-fonts-symbols
 )
 
-# --- Pakete aus dem AUR -------------------------------------------------------
-# hyprswitch: im AUR ein gepflegter Fork (ab Version 5 für Hyprlands Lua-Config),
-# der Alt+Tab-Fensterwechsler.
+# --- Packages from the AUR ----------------------------------------------------
+# hyprswitch: a maintained fork in the AUR (version 5 and later support Hyprland's
+# Lua config), the Alt+Tab window switcher.
 AUR_PKGS=(
   wlogout
   hyprswitch
   qt6ct-kde
 )
 
-echo "==> System aktualisieren"
+echo "==> Updating the system"
 sudo pacman -Syu
 
 TO_INSTALL=()
@@ -50,10 +50,10 @@ for p in "${OFFICIAL_PKGS[@]}"; do
   fi
 done
 
-echo "==> Pakete installieren"
+echo "==> Installing packages"
 sudo pacman -S --needed "${TO_INSTALL[@]}"
 
-# --- AUR-Helper ----------------------------------------------------------------
+# --- AUR helper ----------------------------------------------------------------
 HELPER=""
 if command -v paru >/dev/null 2>&1; then
   HELPER="paru"
@@ -62,8 +62,8 @@ elif command -v yay >/dev/null 2>&1; then
 fi
 
 if [ -z "$HELPER" ]; then
-  read -r -p "Kein AUR-Helper gefunden. paru installieren? [j/N] " ans
-  if [[ "$ans" =~ ^[jJyY]$ ]]; then
+  read -r -p "No AUR helper found. Install paru? [y/N] " ans
+  if [[ "$ans" =~ ^[yYjJ]$ ]]; then
     tmp="$(mktemp -d)"
     git clone https://aur.archlinux.org/paru-bin.git "$tmp/paru-bin"
     (cd "$tmp/paru-bin" && makepkg -si)
@@ -72,51 +72,51 @@ if [ -z "$HELPER" ]; then
   fi
 fi
 
-# Jedes AUR-Paket einzeln: scheitert eines, werden die anderen trotzdem installiert
+# Install each AUR package on its own: if one fails, the others still get installed
 FAILED_AUR=()
 if [ -n "$HELPER" ]; then
-  echo "==> AUR-Pakete installieren ($HELPER)"
+  echo "==> Installing AUR packages ($HELPER)"
   for p in "${AUR_PKGS[@]}"; do
     "$HELPER" -S --needed "$p" || FAILED_AUR+=("$p")
   done
 else
-  echo "AUR-Pakete übersprungen."
+  echo "Skipping AUR packages."
   FAILED_AUR=("${AUR_PKGS[@]}")
 fi
 
-# --- Configs verlinken -----------------------------------------------------------
-echo "==> Configs verlinken"
+# --- Link configs ----------------------------------------------------------------
+echo "==> Linking configs"
 bash "$REPO/link.sh"
 
-# --- Schriften & Shell ---------------------------------------------------------------
+# --- Fonts & shell -------------------------------------------------------------------
 fc-cache -f >/dev/null 2>&1 || true
 
 if [ "$(basename "${SHELL:-}")" != "fish" ]; then
-  echo "==> Standard-Shell auf fish setzen"
-  chsh -s "$(command -v fish)" || echo "chsh fehlgeschlagen, später von Hand: chsh -s /usr/bin/fish"
+  echo "==> Setting fish as the default shell"
+  chsh -s "$(command -v fish)" || echo "chsh failed, do it manually later: chsh -s /usr/bin/fish"
 fi
 
-# --- Hinweise am Ende --------------------------------------------------------------------
+# --- Final notes ---------------------------------------------------------------------------
 echo
-echo "==> Fertig. Noch zu erledigen:"
+echo "==> Done. Still to do:"
 
 if [ "${#MISSING[@]}" -gt 0 ]; then
-  echo "  - Diese Pakete wurden in den Repos nicht gefunden und übersprungen: ${MISSING[*]}"
+  echo "  - These packages were not found in the repos and were skipped: ${MISSING[*]}"
 fi
 
 if [ "${#FAILED_AUR[@]}" -gt 0 ]; then
-  echo "  - Diese AUR-Pakete konnten nicht installiert werden: ${FAILED_AUR[*]}"
-  echo "    Später nachholen mit: paru -S ${FAILED_AUR[*]}"
+  echo "  - These AUR packages could not be installed: ${FAILED_AUR[*]}"
+  echo "    Install them later with: ${HELPER:-paru} -S ${FAILED_AUR[*]}"
 fi
 
 host="$(cat /etc/hostname 2>/dev/null | tr -cd 'A-Za-z0-9_-' || true)"
 if [ ! -f "$REPO/hypr/monitors_${host}.lua" ]; then
-  echo "  - Für diesen Rechner ('${host}') gibt es keine Monitor-Datei, es gilt hypr/monitors_default.lua."
-  echo "    Eigene Datei anlegen: hypr/monitors_${host}.lua (Monitornamen zeigt: hyprctl monitors)"
+  echo "  - There is no monitor file for this machine ('${host}'), hypr/monitors_default.lua is used."
+  echo "    Create your own: hypr/monitors_${host}.lua (monitor names: hyprctl monitors)"
 fi
 
 if ! systemctl is-active --quiet NetworkManager; then
-  echo "  - Netzwerk: nm-applet und nmtui brauchen NetworkManager:"
-  echo "    sudo systemctl enable --now NetworkManager  (nur, wenn nicht schon ein anderer Netzwerkdienst läuft)"
+  echo "  - Network: nm-applet and nmtui need NetworkManager:"
+  echo "    sudo systemctl enable --now NetworkManager  (only if no other network service is running)"
 fi
-echo "  - Danach ab- und wieder anmelden und Hyprland mit start-hyprland starten."
+echo "  - Then log out and back in and start Hyprland with start-hyprland."

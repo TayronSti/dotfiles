@@ -1,12 +1,12 @@
--- NierRiceBohne: Hyprland-Config
--- Doku: https://wiki.hypr.land/Configuring/Start/
+-- NierRiceBohne: Hyprland config
+-- Docs: https://wiki.hypr.land/Configuring/Start/
 
 
 ------------------
 ---- MONITORS ----
 ------------------
 
--- Pro Rechner eine Datei monitors_<hostname>.lua, sonst monitors_default.lua
+-- One file per machine: monitors_<hostname>.lua, otherwise monitors_default.lua
 local host = "default"
 pcall(function()
     local f = io.open("/etc/hostname", "r")
@@ -52,7 +52,7 @@ hl.on("hyprland.start", function ()
     hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme prefer-dark")
     hl.exec_cmd("gnome-keyring-daemon --start --components=secrets")
 
-    -- Desktop: Cava, Terminal und btop landen per Fensterregel (unten) auf Workspace 6
+    -- Desktop: cava, terminal and btop end up on workspace 6 via window rules (below)
     hl.exec_cmd("sleep 1; kitty --class nier-cava -e cava")
     hl.exec_cmd("sleep 1; kitty --class nier-terminal")
     hl.exec_cmd("sleep 1; kitty --class nier-btop -e btop")
@@ -167,7 +167,7 @@ hl.config({
         disable_hyprland_logo    = true, -- If true disables the random hyprland logo / anime girl background. :(
         disable_splash_rendering = true,
 
-        -- Sicherheitsnetz: erlaubt, hyprlock neu zu starten, falls es abstürzt
+        -- Safety net: allows restarting hyprlock if it crashes
         allow_session_lock_restore = true,
     },
 })
@@ -242,7 +242,7 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
 
--- screenshots (Ordner wird bei Bedarf angelegt, folgt dem Bilder-Ordner des Systems)
+-- screenshots (folder is created if needed, follows the system's pictures folder)
 local shots = [[d="$(xdg-user-dir PICTURES 2>/dev/null || echo "$HOME/Pictures")/Screenshots"; mkdir -p "$d"; ]]
 hl.bind("Print", hl.dsp.exec_cmd(shots .. [[grim "$d/$(date +'%Y-%m-%d_%H-%M-%S').png"]]))
 hl.bind("SUPER + SHIFT + S", hl.dsp.exec_cmd(shots .. [[grim -g "$(slurp)" - | tee "$d/$(date +'%Y-%m-%d_%H-%M-%S').png" | wl-copy --type image/png]]))
@@ -264,7 +264,7 @@ hl.bind("ALT + TAB", hl.dsp.exec_cmd("hyprswitch gui --mod-key ALT --key TAB"))
 -- waybar restart
 hl.bind("SUPER + SHIFT + B", hl.dsp.exec_cmd("$HOME/.config/waybar/launch.sh"))
 
--- lock screen (hyprlock), pidof verhindert mehrere Instanzen; es gibt bewusst kein hypridle
+-- lock screen (hyprlock), pidof prevents multiple instances; intentionally no hypridle
 hl.bind("SUPER + L", hl.dsp.exec_cmd("pidof hyprlock || hyprlock"))
 
 
@@ -317,10 +317,10 @@ hl.window_rule({
     workspace = "6",
 })
 
--- Layer-Regeln (Blur für swaync und fuzzel), siehe hypr/layers.lua
+-- Layer rules (blur for swaync and fuzzel), see hypr/layers.lua
 require("layers")
 
--- Persönliche Fensterregeln für Spiel-Overlays (optional, siehe hypr/games.lua)
+-- Personal window rules for game overlays (optional, see hypr/games.lua)
 if package.searchpath("games", package.path) then
     require("games")
 end

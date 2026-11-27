@@ -23,7 +23,7 @@ window#waybar {
 	background: transparent;
 }
 /*--------------------------------------------------*/
-/* Panels: jedes Modul ist ein eckiger dunkler Kasten */
+/* Panels: every module is a dark square box */
 /*--------------------------------------------------*/
 #workspaces,
 #window,
@@ -122,7 +122,7 @@ window#waybar.empty #window {
 	color: @beige;
 }
 /*--------------------------------------------------*/
-/* Hover: klickbare Panels */
+/* Hover: clickable panels */
 /*--------------------------------------------------*/
 #custom-exit:hover,
 #custom-tray-handle:hover {
@@ -145,7 +145,7 @@ window#waybar.empty #window {
 	color: @green;
 }
 /*--------------------------------------------------*/
-/* Hardware Group (ein Panel mit drei Werten) */
+/* Hardware group (one panel with three values) */
 /*--------------------------------------------------*/
 #disk,
 #memory,

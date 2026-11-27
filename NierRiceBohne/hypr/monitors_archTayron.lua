@@ -1,4 +1,4 @@
--- Monitor, auf dem Benachrichtigungen erscheinen sollen
+-- Monitor where notifications should appear
 NOTI_MONITOR = "DP-3"
 
 -- Desktop-PC: 2 Monitore

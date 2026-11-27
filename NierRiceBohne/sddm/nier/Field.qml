@@ -1,6 +1,6 @@
 import QtQuick
 
-// Eingabefeld: eckig, dunkel, dünner Rand (wie das Passwortfeld im Sperrbildschirm)
+// Input field: square, dark, thin border (like the password field on the lock screen)
 Rectangle {
     id: field
 

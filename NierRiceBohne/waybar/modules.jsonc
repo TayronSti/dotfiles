@@ -102,7 +102,7 @@
         "on-click": "pavucontrol"
     },
 
-    // Tray (Griff immer sichtbar, Icons klappen beim Anklicken auf)
+    // Tray (handle always visible, icons expand on click)
     "group/tray-drawer": {
         "orientation": "inherit",
         "drawer": {

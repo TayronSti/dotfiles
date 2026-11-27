@@ -1,4 +1,4 @@
-# Alles nicht Genannte nutzt die cava-Standardwerte.
+# Anything not listed here uses cava's defaults.
 
 [color]
 gradient = 1

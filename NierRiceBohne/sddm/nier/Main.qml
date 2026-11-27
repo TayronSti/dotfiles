@@ -9,7 +9,7 @@ Rectangle {
     property int sessionIndex: sessionModel.lastIndex >= 0 ? sessionModel.lastIndex : 0
     property var sessionNames: []
 
-    // Wallpaper, leicht abgedunkelt (die Datei background.jpeg legt install-theme.sh ab)
+    // Wallpaper, slightly darkened (install-theme.sh puts background.jpeg in place)
     Image {
         anchors.fill: parent
         source: "background.jpeg"
@@ -31,7 +31,7 @@ Rectangle {
         }
     }
 
-    // Namen der Sitzungen einsammeln, damit man sie durchschalten kann
+    // Collect the session names so you can cycle through them
     Repeater {
         model: sessionModel
         delegate: Item {

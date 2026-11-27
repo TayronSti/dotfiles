@@ -1,4 +1,4 @@
-/* Nier-Palette: beiges Menü (wie die Spiel-Oberfläche) */
+/* Nier palette: beige menu (like the in-game UI) */
 @define-color beige #DAD4BB;
 @define-color brown #756C63;
 @define-color mid #4A4541;
@@ -12,7 +12,7 @@
     font-size: 13px;
 }
 
-/* Alles eckig und flach, auch die Standardknöpfe von GTK */
+/* Everything square and flat, including GTK's default buttons */
 .control-center button,
 .floating-notifications button {
     border-radius: 0px;
@@ -22,7 +22,7 @@
 }
 
 /*--------------------------------------------------*/
-/* Fenster und Flächen */
+/* Windows and surfaces */
 /*--------------------------------------------------*/
 .control-center {
     background: @beige;
@@ -83,7 +83,7 @@
 }
 
 /*--------------------------------------------------*/
-/* Nicht stören: dunkle Auswahlzeile */
+/* Do not disturb: dark selection row */
 /*--------------------------------------------------*/
 .widget-dnd {
     margin: 6px 12px;
@@ -117,7 +117,7 @@
 }
 
 /*--------------------------------------------------*/
-/* Meldungen */
+/* Notifications */
 /*--------------------------------------------------*/
 .notification-row {
     outline: none;
@@ -156,7 +156,7 @@
     box-shadow: none;
 }
 
-/* Popups: Kasten mit Rand */
+/* Popups: box with border */
 .notification-content {
     background: @beige;
     padding: 8px 10px;
@@ -166,7 +166,7 @@
     margin: 0;
 }
 
-/* Kontrollzentrum: Listeneintrag mit Trennlinie */
+/* Control center: list entry with divider */
 .control-center .notification-content {
     background: transparent;
     border: none;
@@ -261,7 +261,7 @@
 }
 
 /*--------------------------------------------------*/
-/* Lautstärke */
+/* Volume */
 /*--------------------------------------------------*/
 .widget-volume {
     margin: 6px 12px;
@@ -320,7 +320,7 @@
 }
 
 /*--------------------------------------------------*/
-/* Medienwiedergabe */
+/* Media playback */
 /*--------------------------------------------------*/
 .widget-mpris {
     color: @dark;
@@ -362,7 +362,7 @@
 }
 
 /*--------------------------------------------------*/
-/* Schalter unten */
+/* Buttons at the bottom */
 /*--------------------------------------------------*/
 .widget-buttons-grid {
     font-size: x-large;

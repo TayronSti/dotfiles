@@ -1,6 +1,6 @@
 import QtQuick
 
-// Eckiger Knopf, beim Darüberfahren invertiert (dunkel auf beige)
+// Square button, inverted on hover (dark on beige)
 Rectangle {
     id: tile
 

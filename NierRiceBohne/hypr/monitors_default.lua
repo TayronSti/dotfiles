@@ -1,4 +1,4 @@
--- Fallback: jeder Monitor mit Standardwerten
+-- Fallback: every monitor with default values
 hl.monitor({
     output   = "",
     mode     = "preferred",
