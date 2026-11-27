@@ -1,26 +1,28 @@
 # NierRiceBohne
 
-Mein Hyprland-Rice für Arch Linux im Look von NieR: gedämpftes Braun/Grau, eckige Kanten, eckige Panels in der Leiste, beige Menüs wie im Spiel.
+My Hyprland rice for Arch Linux, inspired by the look of NieR: muted browns and greys, sharp corners, boxy panels in the bar and beige menus like the ones in the game.
 
 ![Screenshot](screenshot.png)
 
+## What's included
 
-## Was dabei ist
-
-| Ordner | Programm |
+| Folder | Contents |
 | --- | --- |
-| `hypr` | Hyprland (Lua-Config), Hyprpaper, Hyprlock, Wallpaper, Monitor-Dateien |
-| `waybar` | Statusleiste |
-| `swaync` | Benachrichtigungen und Kontrollzentrum |
-| `fuzzel` | Programmstarter |
+| `hypr` | Hyprland (Lua config), Hyprpaper, Hyprlock, wallpaper, per-machine monitor files |
+| `waybar` | Status bar |
+| `swaync` | Notifications and control center |
+| `fuzzel` | App launcher |
 | `kitty` | Terminal |
-| `fish` | Shell mit eigenem Prompt und Begrüßung |
-| `fastfetch` | Systeminfo mit NieR-Logo |
-| `cava` | Audio-Visualizer |
+| `fish` | Shell with a custom prompt and greeting |
+| `fastfetch` | System info with a NieR logo |
+| `cava` | Audio visualizer |
+| `gtk-3.0`, `gtk-4.0` | GTK settings (dark mode, icons, cursor size) |
+| `qt6ct`, `color-schemes` | Colors for Qt and KDE apps such as Dolphin |
+| `sddm` | Optional login screen theme |
 
-## Installation (frisches Arch)
+## Installation (fresh Arch)
 
-Voraussetzung: ein installiertes Arch mit normalem Nutzer, `sudo` und Internet.
+Requirements: an installed Arch system with a regular user, `sudo` and an internet connection.
 
 ```bash
 sudo pacman -S git
@@ -30,54 +32,80 @@ chmod +x install.sh link.sh
 ./install.sh
 ```
 
-Das Skript aktualisiert das System, installiert die Pakete (offizielle Repos und AUR), verlinkt die Configs nach `~/.config` und setzt Fish als Standard-Shell. Bereits vorhandene Config-Ordner werden vorher als `<name>.bak.<zahl>` gesichert.
+The script updates the system, installs all packages (official repos and AUR), links the configs into `~/.config` and sets fish as the default shell. If no AUR helper is installed, it offers to build `paru`. Existing config folders are backed up first as `<name>.bak.<number>`, nothing is overwritten.
 
-Nur die Configs verlinken, ohne Pakete:
+To only link the configs without installing packages:
 
 ```bash
 ./link.sh
 ```
 
-Gestartet wird Hyprland im TTY mit `start-hyprland` (nicht mit `Hyprland`) oder über einen Login-Manager.
+Start Hyprland from the TTY with `start-hyprland` (not `Hyprland`), or use a login manager.
 
-## Pro Rechner anpassen
+Note: the output and comments of the scripts are in German.
 
-Monitore sind rechnerspezifisch. Beim Start lädt `hypr/hyprland.lua` die Datei `hypr/monitors_<hostname>.lua`, falls es sie gibt, sonst `hypr/monitors_default.lua`.
+## Login screen (optional)
 
-Für einen neuen Rechner:
+The SDDM theme in `sddm/` matches the lock screen. `install.sh` does not set up SDDM, because a login manager changes how the system boots.
 
-1. Hostname ansehen: `cat /etc/hostname`
-2. Monitornamen und Modi ansehen: `hyprctl monitors`
-3. `hypr/monitors_default.lua` kopieren nach `hypr/monitors_<hostname>.lua` und anpassen
+```bash
+sudo pacman -S sddm
+sudo systemctl enable sddm
+./sddm/test-theme.sh      # preview in a window, changes nothing
+./sddm/install-theme.sh   # installs and activates the theme
+```
 
-## Tastenkürzel (SUPER = Windows-Taste)
+The install script copies the theme to `/usr/share/sddm/themes/nier` and activates it in `/etc/sddm.conf.d/`. After changing anything in `sddm/nier/`, run it again. To go back to the default theme:
 
-| Kürzel | Aktion |
+```bash
+sudo rm /etc/sddm.conf.d/10-nier-theme.conf
+```
+
+If the login screen ever fails to show up, switch to a text console with `Ctrl + Alt + F3`, log in and run the command above.
+
+## Per-machine setup
+
+Monitors are machine-specific. On startup `hypr/hyprland.lua` loads `hypr/monitors_<hostname>.lua` if it exists, otherwise `hypr/monitors_default.lua`.
+
+For a new machine:
+
+1. Check the hostname: `cat /etc/hostname`
+2. Check monitor names and modes: `hyprctl monitors`
+3. Copy `hypr/monitors_default.lua` to `hypr/monitors_<hostname>.lua` and adjust it
+
+## Keybindings (SUPER = Windows key)
+
+| Keys | Action |
 | --- | --- |
 | `SUPER + Q` | Terminal (kitty) |
-| `SUPER + R` | Programmstarter (fuzzel) |
-| `SUPER + E` | Dateimanager (dolphin) |
-| `SUPER + C` | Fenster schließen |
-| `SUPER + L` | Bildschirm sperren (nur von Hand, bewusst kein hypridle) |
-| `SUPER + M` | Hyprland beenden |
-| `SUPER + F` / `SUPER + SHIFT + F` | Maximieren / Vollbild |
-| `SUPER + 1…0` | Workspace wechseln |
-| `SUPER + SHIFT + 1…0` | Fenster auf Workspace verschieben |
-| `SUPER + Pfeiltasten` | Fokus wechseln |
-| `SUPER + V` | Zwischenablage-Verlauf |
-| `SUPER + N` / `SUPER + SHIFT + N` | Kontrollzentrum / Benachrichtigungen löschen |
-| `Druck` | Screenshot (ganzer Bildschirm) |
-| `SUPER + SHIFT + S` | Screenshot (Bereich, in Zwischenablage und Datei) |
-| `SUPER + SHIFT + B` | Waybar neu starten |
-| `ALT + TAB` | Fensterwechsler (siehe unten) |
+| `SUPER + R` | App launcher (fuzzel) |
+| `SUPER + E` | File manager (Dolphin) |
+| `SUPER + C` | Close window |
+| `SUPER + L` | Lock screen (manual only, there is intentionally no idle lock) |
+| `SUPER + M` | Exit Hyprland |
+| `SUPER + F` / `SUPER + SHIFT + F` | Maximize / fullscreen |
+| `SUPER + 1…0` | Switch workspace |
+| `SUPER + SHIFT + 1…0` | Move window to workspace |
+| `SUPER + arrow keys` | Move focus |
+| `SUPER + mouse wheel` | Cycle through workspaces |
+| `SUPER + left / right mouse drag` | Move / resize window |
+| `SUPER + V` | Clipboard history |
+| `SUPER + N` / `SUPER + SHIFT + N` | Control center / clear notifications |
+| `Print` | Screenshot (whole screen) |
+| `SUPER + SHIFT + S` | Screenshot (selection, saved and copied to clipboard) |
+| `SUPER + SHIFT + B` | Restart Waybar |
+| `ALT + TAB` | Window switcher |
+| Media keys | Play/pause, next, previous (via playerctl) |
 
-Screenshots landen im Unterordner `Screenshots` des Bilder-Ordners des Systems.
+Screenshots are saved to a `Screenshots` folder inside your system's pictures folder.
 
-## Bekannte Lücken
+## Theming notes
 
-- **Fensterwechsler**: `ALT + TAB` nutzt `hyprswitch` aus dem AUR. Das ist ein Fork des ursprünglichen Projekts (das heißt inzwischen `hyprshell`), er funktioniert mit Hyprlands Lua-Config (getestet mit Version 6.1). Wer lieber `hyprshell` nutzen will, muss die Aufrufe in `hyprland.lua` anpassen.
-- **Persönliche Fensterregeln**: Regeln für Spiel-Overlays liegen in `hypr/games.lua` und sind optional. Wer sie nicht braucht, löscht die Datei, `hyprland.lua` überspringt sie dann.
+- **GTK apps** (e.g. pavucontrol) get dark mode from `gtk-3.0` / `gtk-4.0` and from `gsettings`, which Hyprland sets on startup.
+- **Qt and KDE apps** (e.g. Dolphin) use `qt6ct-kde` with the color scheme `color-schemes/Nier.colors`. `link.sh` generates `~/.config/qt6ct/qt6ct.conf` from the template `qt6ct/qt6ct.conf`. Make changes in the template in this repo, not in the `qt6ct` app, otherwise the next run of `link.sh` overwrites them. The colors are plain RGB values in `Nier.colors`.
+- **Blur** behind the launcher is set up in `hypr/layers.lua`.
 
-## Qt- und KDE-Programme (Dolphin)
+## Known caveats
 
-Dolphin und andere Qt-Programme nutzen `qt6ct-kde` mit dem Farbschema `color-schemes/Nier.colors`. `link.sh` erzeugt dafür `~/.config/qt6ct/qt6ct.conf` aus der Vorlage `qt6ct/qt6ct.conf`. Änderungen deshalb in der Vorlage im Repo machen, nicht im Programm `qt6ct`, sonst überschreibt der nächste Lauf von `link.sh` sie. Farben stehen als RGB-Werte direkt in `Nier.colors`.
+- **Window switcher**: `ALT + TAB` uses `hyprswitch` from the AUR. This is a fork of the original project (which is now called `hyprshell`) and works with Hyprland's Lua config (tested with version 6.1). If you prefer `hyprshell`, you need to adjust the calls in `hyprland.lua`.
+- **Personal window rules**: rules for game overlays live in `hypr/games.lua` and are optional. If you don't need them, delete the file, `hyprland.lua` then skips it.
