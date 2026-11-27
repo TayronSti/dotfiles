@@ -73,5 +73,5 @@ Screenshots landen im Unterordner `Screenshots` des Bilder-Ordners des Systems.
 
 ## Bekannte Lücken
 
-- **Fensterwechsler**: `ALT + TAB` nutzt `hyprswitch` aus dem AUR. Das ist ein Fork des ursprünglichen Projekts (das heißt inzwischen `hyprshell`), er wird mit Version 5 für Hyprlands Lua-Config gepflegt. Wer lieber `hyprshell` nutzen will, muss die Aufrufe in `hyprland.lua` anpassen.
+- **Fensterwechsler**: `ALT + TAB` nutzt `hyprswitch` aus dem AUR. Das ist ein Fork des ursprünglichen Projekts (das heißt inzwischen `hyprshell`), er funktioniert mit Hyprlands Lua-Config (getestet mit Version 6.1). Wer lieber `hyprshell` nutzen will, muss die Aufrufe in `hyprland.lua` anpassen.
 - **Persönliche Fensterregeln**: Regeln für Spiel-Overlays liegen in `hypr/games.lua` und sind optional. Wer sie nicht braucht, löscht die Datei, `hyprland.lua` überspringt sie dann.
