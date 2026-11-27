@@ -142,12 +142,6 @@ Rectangle {
         spacing: 10
 
         Tile {
-            label: "SLEEP"
-            visible: sddm.canSuspend
-            onClicked: sddm.suspend()
-        }
-
-        Tile {
             label: "REBOOT"
             visible: sddm.canReboot
             onClicked: sddm.reboot()
