@@ -1,0 +1,11 @@
+[SddmGreeterTheme]
+Name=Nier
+Description=Login im Nier-Stil, passend zu NierRiceBohne
+Author=NierRiceBohne
+Version=1.0
+Type=sddm-theme
+MainScript=Main.qml
+ConfigFile=theme.conf
+Theme-Id=nier
+Theme-API=2.0
+QtVersion=6
