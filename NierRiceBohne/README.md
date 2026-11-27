@@ -75,3 +75,7 @@ Screenshots landen im Unterordner `Screenshots` des Bilder-Ordners des Systems.
 
 - **Fensterwechsler**: `ALT + TAB` nutzt `hyprswitch` aus dem AUR. Das ist ein Fork des ursprünglichen Projekts (das heißt inzwischen `hyprshell`), er funktioniert mit Hyprlands Lua-Config (getestet mit Version 6.1). Wer lieber `hyprshell` nutzen will, muss die Aufrufe in `hyprland.lua` anpassen.
 - **Persönliche Fensterregeln**: Regeln für Spiel-Overlays liegen in `hypr/games.lua` und sind optional. Wer sie nicht braucht, löscht die Datei, `hyprland.lua` überspringt sie dann.
+
+## Qt- und KDE-Programme (Dolphin)
+
+Dolphin und andere Qt-Programme nutzen `qt6ct-kde` mit dem Farbschema `color-schemes/Nier.colors`. `link.sh` erzeugt dafür `~/.config/qt6ct/qt6ct.conf` aus der Vorlage `qt6ct/qt6ct.conf`. Änderungen deshalb in der Vorlage im Repo machen, nicht im Programm `qt6ct`, sonst überschreibt der nächste Lauf von `link.sh` sie. Farben stehen als RGB-Werte direkt in `Nier.colors`.
